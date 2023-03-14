@@ -29,7 +29,7 @@ export const getDb = async () => {
   const jateDb = await openDB('jate', 1)
   const tx = jateDb.transaction('jate', 'readonly')
   const store = tx.objectStore('jate')
-  const request = store.get(1)
+  const request = store.getAll()
   const result = await request
   result ? console.log('recieved data from database', result.value) : console.log('data not found')
   return result?.value
